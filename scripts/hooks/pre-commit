@@ -1,0 +1,134 @@
+#!/bin/sh
+# QA 게이트 — tsc/vitest 통과 못하면 커밋 차단.
+# 활성화(클론당 1회): git config core.hooksPath scripts/hooks
+# 'git commit' 시에만 동작 → 자율 세션 brick 위험 없음.
+set -e
+
+# ── mutation 락 (2026-08-16 신설) ──
+# `scripts/mutation-sweep.py` 는 **원본 소스를 변이시킨 채로** 돈다. 그 동안 커밋하면 변이가 섞인다.
+# 실제로 그날 `git add -A` 로 변이된 draft.ts 가 staged 됐고, tsc 가 겨우 잡았다.
+# ★도구 주석에 경고가 있었지만 **그 상황에 처했을 때 안 떠올랐다.** 그래서 게이트로 옮긴다.
+# ★락에 PID 를 적으므로 프로세스가 죽었으면 자동으로 무시된다(락이 남아 영영 못 커밋하는 일 없음).
+LOCK=".mutation.lock"
+if [ -f "$LOCK" ]; then
+  # ★첫 줄만 읽는다 — 락에 안내 문구가 여러 줄 들어가므로 전체를 이어붙이면 PID 가 깨진다.
+  MPID=$(head -n 1 "$LOCK" 2>/dev/null | tr -cd '0-9')
+  if [ -n "$MPID" ] && tasklist 2>/dev/null | grep -q "[^0-9]$MPID[^0-9]"; then
+    echo "[pre-commit] ❌ mutation sweep 가 돌고 있다 (PID $MPID) — 커밋 차단."
+    echo "   이 도구는 소스를 변이시킨 채로 돈다. 지금 커밋하면 변이가 섞인다."
+    echo "   끝나기를 기다리거나:  taskkill //F //PID $MPID && python scripts/mutation-sweep.py --restore"
+    exit 1
+  fi
+  rm -f "$LOCK"   # 죽은 프로세스의 락은 치운다
+fi
+
+# ── secret 스캔 (고신뢰 포맷만·오탐 최소·가장 싸므로 먼저) ──
+# 훅 자신은 제외(패턴 문자열 self-match 방지).
+echo "[pre-commit] secret 스캔 ..."
+SECRET_RE='AIza[0-9A-Za-z_-]{35}|AKIA[0-9A-Z]{16}|-----BEGIN [A-Z ]*PRIVATE KEY-----|sk-[A-Za-z0-9]{32,}|_SECRET *= *[A-Za-z0-9_-]{24,}'
+ADDED=$(git diff --cached -U0 --diff-filter=ACM -- . ':(exclude)scripts/hooks/*' 2>/dev/null | grep '^+' | grep -v '^+++' || true)
+if printf '%s\n' "$ADDED" | grep -qE "$SECRET_RE"; then
+  echo "[pre-commit] ❌ 소스에 하드코딩된 secret 의심 — 커밋 차단. env로 옮기세요:"
+  printf '%s\n' "$ADDED" | grep -nE "$SECRET_RE" | head -5
+  exit 1
+fi
+
+# ── 헌장 자기보호(Charter Self-Protection) ──
+# AI가 검증을 통과하는 최단 경로 = 검증기 자체를 고치는 것.
+# 게이트 파일(훅·CI·rules) 변경은 PO 승인 신호(CHARTER_OK=1) 없이 fail-closed 차단.
+# 목적은 악의 방어가 아니라 "컨텍스트 드리프트 중 검사기를 조용히 고치는" 사고 차단.
+if [ "$CHARTER_OK" != "1" ]; then
+  CHARTER_TOUCHED=$(git diff --cached --name-only | grep -E '^(scripts/hooks/|\.github/workflows/|\.claude/rules/)' || true)
+  if [ -n "$CHARTER_TOUCHED" ]; then
+    echo "[pre-commit] ❌ 헌장 파일(게이트·CI·rules) 변경 감지 — CHARTER_OK=1 없이 커밋 차단:"
+    printf '%s\n' "$CHARTER_TOUCHED" | head -5
+    echo "  의도된 변경이면: CHARTER_OK=1 git commit ..."
+    exit 1
+  fi
+fi
+
+echo "[pre-commit] mjs 문법 ..."
+for f in $(git diff --cached --name-only | grep -E "[.]mjs$"); do
+  if [ -f "$f" ]; then
+    node --check "$f" || { echo "[pre-commit] X mjs 문법: $f"; exit 1; }
+  fi
+done
+
+# 공허한 검사 린트 (2026-08-23 · PO "철저히 재발하지 않도록")
+# 하루에 네 번 같은 뿌리로 틀렸다: 검사가 잡으려는 것 대신 **그 이름**을 봤다.
+# 이름은 주석에도 타입에도 import 에도 있어서, 코드를 지워도 초록이 유지된다.
+# 이 린트는 그중 **주석에만 있는 것을 검사하는 골든**을 잡는다(가장 흔한 형태).
+VACUOUS="$USERPROFILE/.claude/tools/vacuous-check-lint.mjs"
+if [ -f "$VACUOUS" ]; then
+  echo "[pre-commit] 공허한 검사 ..."
+  node "$VACUOUS" || { echo "[pre-commit] X 코드가 사라져도 통과하는 검사가 있다 - 커밋 차단."; exit 1; }
+fi
+
+
+# 새 골든은 반증 기록 없이 못 들어온다 (2026-08-23 · PO "철저히 재발 방지")
+# 통과하는 골든은 그 자체로 아무것도 증명하지 않는다. 오늘 다섯 번, 통과하는 검사가
+# 실제로는 주석·타입·함수이름에 만족하고 있었다. 패턴으로는 전부 못 가른다 —
+# 결함을 심어 빨개지는 것을 보는 것이 유일한 방법이고, 그 기록이 남아야 다음 세션이 믿는다.
+GOLDEN_FALSIFY="$USERPROFILE/.claude/tools/new-golden-needs-falsification.mjs"
+if [ -f "$GOLDEN_FALSIFY" ]; then
+  node "$GOLDEN_FALSIFY" || exit 1
+fi
+
+# 반증 주입이 복원되지 않은 채로는 커밋하지 않는다 (2026-08-29 실사고)
+# 반증 재실행을 백그라운드로 돌렸다가 끊겼고, sudoku game.ts 가 결함이 심긴 상태로 남았다.
+# 복원은 finally 에 있지만 프로세스가 통째로 죽으면 그것도 안 돈다 — 남는 흔적이 .falsify-bak 다.
+# 그 상태로 커밋하면 결함이 라이브로 나간다.
+FALSIFY_BAK="$USERPROFILE/.claude/tools/falsify-bak-sweep.mjs"
+if [ -f "$FALSIFY_BAK" ]; then
+  node "$FALSIFY_BAK" || { echo "[pre-commit] 반증 백업이 남아 있다 — --restore 로 되돌린 뒤 커밋해라."; exit 1; }
+fi
+
+
+# 새 화면을 만들면 사이트맵을 열어 보게 한다 (2026-08-23 · PO "문서가 많아지니까 계속 까먹는듯")
+# 네 앱 sitemap.ts 에 "새 표면이 생기면 사이트맵도 같이 자란다"고 적혀 있었는데 안 자랐다.
+# 오늘 5앱에서 8건을 손으로 채웠다. 문서에 적은 지시는 그 파일에 다시 올 때만 작동한다.
+NEWPAGE="$USERPROFILE/.claude/tools/new-page-touches-sitemap.mjs"
+if [ -f "$NEWPAGE" ]; then
+  node "$NEWPAGE" || exit 1
+fi
+
+
+# 보내는 필드마다 고지에 대응하는 말이 있는가 (2026-08-23)
+# 2026-08-21 에 /about 이 "기보는 받지 않는다"고 말하는데 서버가 받고 있었다. 라이브 문장이 거짓이었다.
+# 정본(track/route.ts)에서 필드를 도출하므로 새 필드를 빠뜨리는 것이 불가능하다.
+# 보내는데 읽는 자리가 없는 필드 (2026-08-23 · 하루에 세 번 만난 클래스)
+# 유입 라벨이 브라우저 밖으로 안 나가던 것, 대결 표를 받기만 하고 안 세던 것,
+# 형제 앱에 같은 대결을 지으며 또 안 셀 뻔한 것. 둘은 내가 새로 낸 결함이다.
+# 말로 적어 두는 것으로는 안 막힌다는 게 그 하루가 낸 증거라 기계로 옮겼다.
+EMIT="$USERPROFILE/.claude/tools/emitter-needs-reader.mjs"
+if [ -f "$EMIT" ]; then
+  node "$EMIT" || exit 1
+fi
+
+NOTICE="$USERPROFILE/.claude/tools/telemetry-notice-parity.mjs"
+if [ -f "$NOTICE" ]; then
+  node "$NOTICE" || exit 1
+fi
+
+
+# 줄이 바뀌면서 한국어 낱말이 붙는가 (2026-08-23 · 라이브 촬영에서 눈으로 잡았다)
+# "안 하기로 한 것이 아니라이을 것이 없습니다" 가 두 앱의 법무 문서에 나가 있었다.
+# 영어면 두 단어가 붙어 눈에 띄지만 한국어는 그냥 다른 낱말이 된다.
+KRSPACE="$USERPROFILE/.claude/tools/jsx-korean-space.mjs"
+if [ -f "$KRSPACE" ]; then
+  node "$KRSPACE" || exit 1
+fi
+
+echo "[pre-commit] tsc --noEmit ..."
+if ! npx tsc --noEmit; then
+  echo "[pre-commit] ❌ 타입 오류 — 커밋 차단."
+  exit 1
+fi
+
+echo "[pre-commit] vitest run ..."
+if ! npx vitest run; then
+  echo "[pre-commit] ❌ 테스트 실패 — 커밋 차단."
+  exit 1
+fi
+
+echo "[pre-commit] ✅ tsc + vitest 통과"

@@ -1,0 +1,35 @@
+{
+  "name": "erd",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 39290",
+    "build": "next build",
+    "start": "next start",
+    "test": "vitest run",
+    "deploy": "node C:/Users/okwhr/.claude/tools/cf-deploy-app.mjs erd",
+    "e2e": "node e2e/live.mjs",
+    "funnel": "node scripts/read-funnel.mjs",
+    "cf:deploy": "node \"C:/Users/okwhr/.claude/cf-tools/node_modules/@opennextjs/cloudflare/dist/cli/index.js\" build && node \"C:/Users/okwhr/.claude/cf-tools/node_modules/@opennextjs/cloudflare/dist/cli/index.js\" deploy",
+    "cf:preview": "node \"C:/Users/okwhr/.claude/cf-tools/node_modules/@opennextjs/cloudflare/dist/cli/index.js\" build && node \"C:/Users/okwhr/.claude/cf-tools/node_modules/@opennextjs/cloudflare/dist/cli/index.js\" preview",
+    "cf:upload": "node \"C:/Users/okwhr/.claude/cf-tools/node_modules/@opennextjs/cloudflare/dist/cli/index.js\" build && node \"C:/Users/okwhr/.claude/cf-tools/node_modules/@opennextjs/cloudflare/dist/cli/index.js\" upload",
+    "cf-typegen": "node \"C:/Users/okwhr/.claude/cf-tools/node_modules/wrangler/bin/wrangler.js\" types --env-interface CloudflareEnv cloudflare-env.d.ts"
+  },
+  "dependencies": {
+    "next": "16.3.5",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "jsdom": "^30.0.1",
+    "playwright": "^1.62.1",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "vitest": "^4.1.10"
+  }
+}

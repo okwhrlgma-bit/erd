@@ -1,0 +1,54 @@
+<meta name="erd-commit" content="__COMMIT__">
+<style>#erd-loading{font:14px system-ui,sans-serif;color:#555;text-align:center;margin-top:30vh}</style>
+<script>
+  // ERD 계측(우리가 더한 부분): 단계 이름만 /api/track 으로 보낸다. 그린 도면과 파일은 읽지 않는다.
+  // 세션당 단계별 1회, 키와 유입 라벨 규칙은 src/lib/funnel.ts 와 같다.
+  (function () {
+    var KEY = "erd.funnel.v1", SRC = /^[a-z][a-z0-9.-]{0,31}$/;
+    function lang() {
+      try { return (localStorage.getItem("i18nextLng") || navigator.language || "").toLowerCase().indexOf("ko") === 0 ? "ko" : "en"; } catch (e) { return "en"; }
+    }
+    function srcLabel() {
+      try {
+        var sp = new URLSearchParams(location.search);
+        var q = sp.get("src") || sp.get("from") || "";
+        if (SRC.test(q)) return q;
+        var ref = document.referrer ? new URL(document.referrer).hostname.toLowerCase() : "";
+        if (ref && ref !== location.hostname && SRC.test(ref)) return ref;
+      } catch (e) {}
+      return "direct";
+    }
+    function track(step) {
+      try {
+        var seen = JSON.parse(sessionStorage.getItem(KEY) || "[]");
+        if (seen.indexOf(step) >= 0) return;
+        seen.push(step);
+        sessionStorage.setItem(KEY, JSON.stringify(seen));
+        var probe = new URLSearchParams(location.search).get("probe") === "1";
+        fetch("/api/track", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ reached: step, lang: lang(), probe: probe, src: srcLabel() }),
+          keepalive: true
+        });
+      } catch (e) {}
+    }
+    addEventListener("erd:step", function (e) { if (e && e.detail === "export") track("export"); });
+    var done = false;
+    function first() {
+      if (done) return;
+      done = true;
+      removeEventListener("pointerdown", first, true);
+      removeEventListener("keydown", first, true);
+      track("first_input");
+    }
+    // 편집기 화면이 뜬 뒤(로딩 문구가 사라진 뒤)의 첫 입력만 센다.
+    var t = setInterval(function () {
+      if (document.getElementById("erd-loading") || !document.getElementById("root").firstChild) return;
+      clearInterval(t);
+      track("editor_ready");
+      addEventListener("pointerdown", first, true);
+      addEventListener("keydown", first, true);
+    }, 300);
+  })();
+</script>

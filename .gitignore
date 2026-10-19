@@ -1,0 +1,22 @@
+dev.log
+.next/
+node_modules/
+.run*/
+build.log
+dev.log
+*.tsbuildinfo
+.env.local
+
+# OpenNext
+.open-next
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.sim/
+
+# 원본 가변 글꼴(10MB) — data-src/build-font.mjs 머리의 주소에서 받는다
+data-src/fonts/NotoSansKR-VF.ttf
+data-src/fonts/charset.txt
+.next-start.log

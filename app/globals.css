@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+/**
+ * 팔레트는 가게 게시판에서 나온다 — 흰 종이, 짙은 먹색 글자, 단추는 먹색. 안내문 종이는 늘 흰 바탕에 먹색 글자다.
+ * ★--ink 위 흰 글자 대비 15:1 안팎. --err 는 흰 바탕 대비 6.4:1(#b91c1c).
+ * ★도너 토큰 이름(leaf)은 검사들이 보므로 남기고 값만 맞췄다.
+ */
+:root {
+  --background: #fafaf7;
+  --foreground: #1c1c1a;
+  --ink: #1f2a37;
+  --on-ink: #ffffff;
+  --err: #b91c1c;
+  --leaf: #1f2a37;
+  --on-leaf: #ffffff;
+  --leaf-soft: #eef0f3;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ink: var(--ink);
+  --color-on-ink: var(--on-ink);
+  --color-err: var(--err);
+  --color-leaf: var(--leaf);
+  --color-on-leaf: var(--on-leaf);
+  --color-leaf-soft: var(--leaf-soft);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #16181b;
+    --foreground: #ecebe6;
+    --ink: #e5e7eb;
+    --on-ink: #111827;
+    --err: #fca5a5;
+    --leaf: #e5e7eb;
+    --on-leaf: #111827;
+    --leaf-soft: #262a30;
+  }
+}
+
+/*
+ * 안내문 글꼴 — Noto Sans KR 부분 글꼴(OFL 1.1 · public/fonts/OFL.txt · 굽는 법 data-src/build-font.mjs).
+ * 완성형 한글 2,350자 + ASCII + 라틴-1 + 몇몇 기호. 없는 글자는 다음 글꼴로 넘어간다.
+ */
+@font-face {
+  font-family: "NoticeSans";
+  src: url("/fonts/notice-900.woff") format("woff");
+  font-weight: 800 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "NoticeSans";
+  src: url("/fonts/notice-700.woff") format("woff");
+  font-weight: 100 799;
+  font-display: swap;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 한국어 어절 보존 — 단어 중간 절단 방지. CJK 표준 관례. */
+body { word-break: keep-all; overflow-wrap: anywhere; }
+
+/*
+ * ★dark-palette-rollout (2026-09-25 · 비게임 앱 UX 전수 감사). 밤 화면에서 바탕만 어두워지고 고정 회색 글자(text-neutral-700 등)가
+ *   그대로 남아 설명 글이 1.1~1.6:1 로 안 보였다(360px 다크 촬영). 회색 칸을 밝기 순서로 뒤집는다.
+ *   골든 = test/dark-palette.test.ts · 도구 = ~/.claude/tools/dark-palette-rollout.mjs
+ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --color-neutral-50: oklch(27% 0.006 60);
+    --color-neutral-100: oklch(30% 0.006 60);
+    --color-neutral-200: oklch(38% 0.006 60);
+    --color-neutral-300: oklch(46% 0.006 60);
+    --color-neutral-400: oklch(68% 0.006 60);
+    --color-neutral-500: oklch(73% 0.006 60);
+    --color-neutral-600: oklch(79% 0.006 60);
+    --color-neutral-700: oklch(85% 0.006 60);
+    --color-neutral-800: oklch(90% 0.006 60);
+    --color-neutral-900: oklch(94% 0.006 60);
+    --color-neutral-950: oklch(97% 0.006 60);
+  }
+  :is(.bg-neutral-600, .bg-neutral-700, .bg-neutral-800, .bg-neutral-900, .bg-neutral-950).text-white { color: oklch(20% 0.006 60); }
+}
+
+/* 못 채운 광고 칸은 접는다(구글 애드센스 안내 방식) — 채우지 못한 자리가 목록 아래를 빈 화면으로 밀지 않게. */
+ins.adsbygoogle[data-ad-status="unfilled"] { display: none !important; }
+
+/*
+ * 인쇄 — 화면은 통째로 숨기고 #notice-print(안내문 종이)만 찍는다. 종이 크기는 Editor 가 @page 로 적는다.
+ * ★밤 화면이어도 종이는 흰 바탕. 광고 칸은 인쇄 영역 밖이라 찍히지 않는다.
+ */
+#notice-print { display: none; }
+@media print {
+  :root { color-scheme: light; }
+  html, body { background: #fff !important; margin: 0 !important; padding: 0 !important; }
+  body > *:not(#notice-print) { display: none !important; }
+  #notice-print { display: block; }
+  #notice-print .notice-sheet { break-after: page; page-break-after: always; }
+  #notice-print .notice-sheet:last-child { break-after: auto; page-break-after: auto; }
+}
+
+/* 전체화면: 상자 비율과 테두리를 걷고 화면을 꽉 채운다. */
+[data-stage]:fullscreen { aspect-ratio: auto; border: 0; border-radius: 0; }

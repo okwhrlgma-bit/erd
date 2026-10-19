@@ -1,0 +1,39 @@
+ERD 그리기 (ERD Maker) NOTICE
+
+This program is a modified version of drawDB.
+
+Original work
+  drawDB
+  Copyright (c) drawDB contributors (https://github.com/drawdb-io/drawdb)
+  Licensed under the GNU Affero General Public License v3.0.
+  Upstream commit used as the base: 7683bdf (2026-10-16).
+
+Modifications
+  Copyright (c) 2026 gwirae
+  The modified source is licensed under the GNU Affero General Public License v3.0 or later,
+  the same terms as the original. The full modified source is at
+  https://github.com/okwhrlgma-bit/erd
+  A dated list of the changes is in CHANGES.md.
+
+No warranty
+  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  See the GNU Affero General Public License (LICENSE) for details.
+
+This is an unofficial build. It has no tie to the upstream project, and the upstream name and
+logo are not used on its screens except in this notice and in the About and License window.
+
+Bundled open-source components
+  Monaco Editor        MIT                              public/open/LICENSE-monaco-editor.txt
+  Font Awesome Free    code MIT, icons CC BY 4.0,       public/open/LICENSE-fontawesome-free.txt
+                       fonts SIL OFL 1.1
+  Bootstrap Icons      MIT                              public/open/LICENSE-bootstrap-icons.txt
+  Other npm dependencies of the editor are listed in upstream/package.json; each is under
+  a license compatible with the AGPL-3.0 (MIT, Apache-2.0, MPL-2.0).
+
+---
+
+이 프로그램은 drawDB 를 수정한 판입니다.
+원저작: drawdb-io/drawdb 의 저작자들, GNU AGPL-3.0. 수정 저작: 2026 gwirae, 같은 조건(AGPL-3.0 이상).
+고친 소스 전체는 https://github.com/okwhrlgma-bit/erd 에 있고, 고친 내용은 CHANGES.md 에 날짜와 함께 적었습니다.
+보증은 없습니다. 자세한 조건은 LICENSE 에 있습니다.

@@ -1,0 +1,25 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"main": ".open-next/worker.js",
+	"name": "erd",
+	"compatibility_date": "2026-09-08",
+	"compatibility_flags": [
+		"nodejs_compat",
+		"global_fetch_strictly_public"
+	],
+	"assets": {
+		"directory": ".open-next/assets",
+		"binding": "ASSETS"
+	},
+	"services": [
+		{
+			"binding": "WORKER_SELF_REFERENCE",
+			"service": "erd"
+		}
+	],
+	"workers_dev": true,
+		// ★2026-09-21: custom_domain 이 아니라 Route 다 — 커스텀 도메인은 존당 100개 한도라 145개를 못 건다(limits 실측). Route 는 프록시 A 레코드(192.0.2.1)만 있으면 된다.
+	"routes": [
+		{ "pattern": "erd.gwirae.com/*", "zone_name": "gwirae.com" }
+	]
+}

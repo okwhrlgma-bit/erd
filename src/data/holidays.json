@@ -1,0 +1,1195 @@
+{
+  "about": "대한민국 관공서 공휴일(일요일 제외). 연도 → 날짜 → 공휴일 배열(같은 날 둘일 수 있다). basis 는 관공서의 공휴일에 관한 규정의 조문.",
+  "rule": {
+    "name": "관공서의 공휴일에 관한 규정",
+    "no": "제36290호",
+    "inForce": "2026-05-01",
+    "href": "https://www.law.go.kr/법령/관공서의공휴일에관한규정"
+  },
+  "checkedOn": "2026-09-06",
+  "note": "임시공휴일과 선거일은 정부 공고를 확인한 것만 들어 있다. 2029년 이후 선거일은 공고 전이라 없다. 일요일은 싣지 않는다.",
+  "years": {
+    "2024": {
+      "2024-01-01": [
+        {
+          "name": "1월 1일",
+          "nameEn": "New Year's Day",
+          "kind": "newyear",
+          "basis": "제2조 제3호"
+        }
+      ],
+      "2024-02-09": [
+        {
+          "name": "설날 전날",
+          "nameEn": "Seollal holiday (day before)",
+          "kind": "seol",
+          "basis": "제2조 제4호"
+        }
+      ],
+      "2024-02-10": [
+        {
+          "name": "설날",
+          "nameEn": "Seollal (Lunar New Year)",
+          "kind": "seol",
+          "basis": "제2조 제4호"
+        }
+      ],
+      "2024-02-11": [
+        {
+          "name": "설날 다음 날",
+          "nameEn": "Seollal holiday (day after)",
+          "kind": "seol",
+          "basis": "제2조 제4호"
+        }
+      ],
+      "2024-02-12": [
+        {
+          "name": "대체공휴일(설날 다음 날)",
+          "nameEn": "Substitute holiday for Seollal holiday (day after)",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제2호",
+          "for": "2024-02-11"
+        }
+      ],
+      "2024-03-01": [
+        {
+          "name": "3ㆍ1절",
+          "nameEn": "Independence Movement Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2024-04-10": [
+        {
+          "name": "제22대 국회의원 선거일",
+          "nameEn": "National Assembly election day",
+          "kind": "election",
+          "basis": "제2조 제10의2호",
+          "source": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2024"
+        }
+      ],
+      "2024-05-05": [
+        {
+          "name": "어린이날",
+          "nameEn": "Children's Day",
+          "kind": "children",
+          "basis": "제2조 제7호"
+        }
+      ],
+      "2024-05-06": [
+        {
+          "name": "대체공휴일(어린이날)",
+          "nameEn": "Substitute holiday for Children's Day",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제1호",
+          "for": "2024-05-05"
+        }
+      ],
+      "2024-05-15": [
+        {
+          "name": "부처님 오신 날",
+          "nameEn": "Buddha's Birthday",
+          "kind": "buddha",
+          "basis": "제2조 제6호"
+        }
+      ],
+      "2024-06-06": [
+        {
+          "name": "현충일",
+          "nameEn": "Memorial Day",
+          "kind": "memorial",
+          "basis": "제2조 제8호"
+        }
+      ],
+      "2024-08-15": [
+        {
+          "name": "광복절",
+          "nameEn": "Liberation Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2024-09-16": [
+        {
+          "name": "추석 전날",
+          "nameEn": "Chuseok holiday (day before)",
+          "kind": "chuseok",
+          "basis": "제2조 제9호"
+        }
+      ],
+      "2024-09-17": [
+        {
+          "name": "추석",
+          "nameEn": "Chuseok (Korean Thanksgiving)",
+          "kind": "chuseok",
+          "basis": "제2조 제9호"
+        }
+      ],
+      "2024-09-18": [
+        {
+          "name": "추석 다음 날",
+          "nameEn": "Chuseok holiday (day after)",
+          "kind": "chuseok",
+          "basis": "제2조 제9호"
+        }
+      ],
+      "2024-10-01": [
+        {
+          "name": "임시공휴일(국군의 날)",
+          "nameEn": "Temporary public holiday (Armed Forces Day)",
+          "kind": "temporary",
+          "basis": "제2조 제11호",
+          "source": "https://www.mpm.go.kr/mpm/comm/newsPress/newsPressRelease/?boardId=bbs_0000000000000029&mode=view&cntId=3940"
+        }
+      ],
+      "2024-10-03": [
+        {
+          "name": "개천절",
+          "nameEn": "National Foundation Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2024-10-09": [
+        {
+          "name": "한글날",
+          "nameEn": "Hangeul Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2024-12-25": [
+        {
+          "name": "기독탄신일",
+          "nameEn": "Christmas Day",
+          "kind": "christmas",
+          "basis": "제2조 제10호"
+        }
+      ]
+    },
+    "2025": {
+      "2025-01-01": [
+        {
+          "name": "1월 1일",
+          "nameEn": "New Year's Day",
+          "kind": "newyear",
+          "basis": "제2조 제3호"
+        }
+      ],
+      "2025-01-27": [
+        {
+          "name": "임시공휴일",
+          "nameEn": "Temporary public holiday",
+          "kind": "temporary",
+          "basis": "제2조 제11호",
+          "source": "https://www.mpm.go.kr/mpm/comm/newsPress/newsPressRelease/?boardId=bbs_0000000000000029&mode=view&cntId=4008"
+        }
+      ],
+      "2025-01-28": [
+        {
+          "name": "설날 전날",
+          "nameEn": "Seollal holiday (day before)",
+          "kind": "seol",
+          "basis": "제2조 제4호"
+        }
+      ],
+      "2025-01-29": [
+        {
+          "name": "설날",
+          "nameEn": "Seollal (Lunar New Year)",
+          "kind": "seol",
+          "basis": "제2조 제4호"
+        }
+      ],
+      "2025-01-30": [
+        {
+          "name": "설날 다음 날",
+          "nameEn": "Seollal holiday (day after)",
+          "kind": "seol",
+          "basis": "제2조 제4호"
+        }
+      ],
+      "2025-03-01": [
+        {
+          "name": "3ㆍ1절",
+          "nameEn": "Independence Movement Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2025-03-03": [
+        {
+          "name": "대체공휴일(3ㆍ1절)",
+          "nameEn": "Substitute holiday for Independence Movement Day",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제1호",
+          "for": "2025-03-01"
+        }
+      ],
+      "2025-05-05": [
+        {
+          "name": "어린이날",
+          "nameEn": "Children's Day",
+          "kind": "children",
+          "basis": "제2조 제7호"
+        },
+        {
+          "name": "부처님 오신 날",
+          "nameEn": "Buddha's Birthday",
+          "kind": "buddha",
+          "basis": "제2조 제6호"
+        }
+      ],
+      "2025-05-06": [
+        {
+          "name": "대체공휴일(부처님 오신 날, 어린이날)",
+          "nameEn": "Substitute holiday for Buddha's Birthday and Children's Day",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제3호",
+          "for": "2025-05-05"
+        }
+      ],
+      "2025-06-03": [
+        {
+          "name": "임시공휴일(제21대 대통령 선거일)",
+          "nameEn": "Temporary public holiday (21st presidential election)",
+          "kind": "temporary",
+          "basis": "제2조 제11호",
+          "source": "https://www.mpm.go.kr/mpm/comm/newsPress/newsPressRelease/?boardId=bbs_0000000000000029&mode=view&cntId=4045"
+        }
+      ],
+      "2025-06-06": [
+        {
+          "name": "현충일",
+          "nameEn": "Memorial Day",
+          "kind": "memorial",
+          "basis": "제2조 제8호"
+        }
+      ],
+      "2025-08-15": [
+        {
+          "name": "광복절",
+          "nameEn": "Liberation Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2025-10-03": [
+        {
+          "name": "개천절",
+          "nameEn": "National Foundation Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2025-10-05": [
+        {
+          "name": "추석 전날",
+          "nameEn": "Chuseok holiday (day before)",
+          "kind": "chuseok",
+          "basis": "제2조 제9호"
+        }
+      ],
+      "2025-10-06": [
+        {
+          "name": "추석",
+          "nameEn": "Chuseok (Korean Thanksgiving)",
+          "kind": "chuseok",
+          "basis": "제2조 제9호"
+        }
+      ],
+      "2025-10-07": [
+        {
+          "name": "추석 다음 날",
+          "nameEn": "Chuseok holiday (day after)",
+          "kind": "chuseok",
+          "basis": "제2조 제9호"
+        }
+      ],
+      "2025-10-08": [
+        {
+          "name": "대체공휴일(추석 전날)",
+          "nameEn": "Substitute holiday for Chuseok holiday (day before)",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제2호",
+          "for": "2025-10-05"
+        }
+      ],
+      "2025-10-09": [
+        {
+          "name": "한글날",
+          "nameEn": "Hangeul Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2025-12-25": [
+        {
+          "name": "기독탄신일",
+          "nameEn": "Christmas Day",
+          "kind": "christmas",
+          "basis": "제2조 제10호"
+        }
+      ]
+    },
+    "2026": {
+      "2026-01-01": [
+        {
+          "name": "1월 1일",
+          "nameEn": "New Year's Day",
+          "kind": "newyear",
+          "basis": "제2조 제3호"
+        }
+      ],
+      "2026-02-16": [
+        {
+          "name": "설날 전날",
+          "nameEn": "Seollal holiday (day before)",
+          "kind": "seol",
+          "basis": "제2조 제4호"
+        }
+      ],
+      "2026-02-17": [
+        {
+          "name": "설날",
+          "nameEn": "Seollal (Lunar New Year)",
+          "kind": "seol",
+          "basis": "제2조 제4호"
+        }
+      ],
+      "2026-02-18": [
+        {
+          "name": "설날 다음 날",
+          "nameEn": "Seollal holiday (day after)",
+          "kind": "seol",
+          "basis": "제2조 제4호"
+        }
+      ],
+      "2026-03-01": [
+        {
+          "name": "3ㆍ1절",
+          "nameEn": "Independence Movement Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2026-03-02": [
+        {
+          "name": "대체공휴일(3ㆍ1절)",
+          "nameEn": "Substitute holiday for Independence Movement Day",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제1호",
+          "for": "2026-03-01"
+        }
+      ],
+      "2026-05-01": [
+        {
+          "name": "노동절",
+          "nameEn": "Labor Day",
+          "kind": "labor",
+          "basis": "제2조 제6호"
+        }
+      ],
+      "2026-05-05": [
+        {
+          "name": "어린이날",
+          "nameEn": "Children's Day",
+          "kind": "children",
+          "basis": "제2조 제7호"
+        }
+      ],
+      "2026-05-24": [
+        {
+          "name": "부처님 오신 날",
+          "nameEn": "Buddha's Birthday",
+          "kind": "buddha",
+          "basis": "제2조 제5호"
+        }
+      ],
+      "2026-05-25": [
+        {
+          "name": "대체공휴일(부처님 오신 날)",
+          "nameEn": "Substitute holiday for Buddha's Birthday",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제1호",
+          "for": "2026-05-24"
+        }
+      ],
+      "2026-06-03": [
+        {
+          "name": "제9회 전국동시지방선거일",
+          "nameEn": "Nationwide local election day",
+          "kind": "election",
+          "basis": "제2조 제10의2호",
+          "source": "https://www.nec.go.kr/site/nec/main.do"
+        }
+      ],
+      "2026-06-06": [
+        {
+          "name": "현충일",
+          "nameEn": "Memorial Day",
+          "kind": "memorial",
+          "basis": "제2조 제8호"
+        }
+      ],
+      "2026-07-17": [
+        {
+          "name": "제헌절",
+          "nameEn": "Constitution Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2026-08-15": [
+        {
+          "name": "광복절",
+          "nameEn": "Liberation Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2026-08-17": [
+        {
+          "name": "대체공휴일(광복절)",
+          "nameEn": "Substitute holiday for Liberation Day",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제1호",
+          "for": "2026-08-15"
+        }
+      ],
+      "2026-09-24": [
+        {
+          "name": "추석 전날",
+          "nameEn": "Chuseok holiday (day before)",
+          "kind": "chuseok",
+          "basis": "제2조 제9호"
+        }
+      ],
+      "2026-09-25": [
+        {
+          "name": "추석",
+          "nameEn": "Chuseok (Korean Thanksgiving)",
+          "kind": "chuseok",
+          "basis": "제2조 제9호"
+        }
+      ],
+      "2026-09-26": [
+        {
+          "name": "추석 다음 날",
+          "nameEn": "Chuseok holiday (day after)",
+          "kind": "chuseok",
+          "basis": "제2조 제9호"
+        }
+      ],
+      "2026-10-03": [
+        {
+          "name": "개천절",
+          "nameEn": "National Foundation Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2026-10-05": [
+        {
+          "name": "대체공휴일(개천절)",
+          "nameEn": "Substitute holiday for National Foundation Day",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제1호",
+          "for": "2026-10-03"
+        }
+      ],
+      "2026-10-09": [
+        {
+          "name": "한글날",
+          "nameEn": "Hangeul Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2026-12-25": [
+        {
+          "name": "기독탄신일",
+          "nameEn": "Christmas Day",
+          "kind": "christmas",
+          "basis": "제2조 제10호"
+        }
+      ]
+    },
+    "2027": {
+      "2027-01-01": [
+        {
+          "name": "1월 1일",
+          "nameEn": "New Year's Day",
+          "kind": "newyear",
+          "basis": "제2조 제3호"
+        }
+      ],
+      "2027-02-06": [
+        {
+          "name": "설날 전날",
+          "nameEn": "Seollal holiday (day before)",
+          "kind": "seol",
+          "basis": "제2조 제4호"
+        }
+      ],
+      "2027-02-07": [
+        {
+          "name": "설날",
+          "nameEn": "Seollal (Lunar New Year)",
+          "kind": "seol",
+          "basis": "제2조 제4호"
+        }
+      ],
+      "2027-02-08": [
+        {
+          "name": "설날 다음 날",
+          "nameEn": "Seollal holiday (day after)",
+          "kind": "seol",
+          "basis": "제2조 제4호"
+        }
+      ],
+      "2027-02-09": [
+        {
+          "name": "대체공휴일(설날)",
+          "nameEn": "Substitute holiday for Seollal (Lunar New Year)",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제2호",
+          "for": "2027-02-07"
+        }
+      ],
+      "2027-03-01": [
+        {
+          "name": "3ㆍ1절",
+          "nameEn": "Independence Movement Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2027-05-01": [
+        {
+          "name": "노동절",
+          "nameEn": "Labor Day",
+          "kind": "labor",
+          "basis": "제2조 제6호"
+        }
+      ],
+      "2027-05-03": [
+        {
+          "name": "대체공휴일(노동절)",
+          "nameEn": "Substitute holiday for Labor Day",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제1호",
+          "for": "2027-05-01"
+        }
+      ],
+      "2027-05-05": [
+        {
+          "name": "어린이날",
+          "nameEn": "Children's Day",
+          "kind": "children",
+          "basis": "제2조 제7호"
+        }
+      ],
+      "2027-05-13": [
+        {
+          "name": "부처님 오신 날",
+          "nameEn": "Buddha's Birthday",
+          "kind": "buddha",
+          "basis": "제2조 제5호"
+        }
+      ],
+      "2027-06-06": [
+        {
+          "name": "현충일",
+          "nameEn": "Memorial Day",
+          "kind": "memorial",
+          "basis": "제2조 제8호"
+        }
+      ],
+      "2027-07-17": [
+        {
+          "name": "제헌절",
+          "nameEn": "Constitution Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2027-07-19": [
+        {
+          "name": "대체공휴일(제헌절)",
+          "nameEn": "Substitute holiday for Constitution Day",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제1호",
+          "for": "2027-07-17"
+        }
+      ],
+      "2027-08-15": [
+        {
+          "name": "광복절",
+          "nameEn": "Liberation Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2027-08-16": [
+        {
+          "name": "대체공휴일(광복절)",
+          "nameEn": "Substitute holiday for Liberation Day",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제1호",
+          "for": "2027-08-15"
+        }
+      ],
+      "2027-09-14": [
+        {
+          "name": "추석 전날",
+          "nameEn": "Chuseok holiday (day before)",
+          "kind": "chuseok",
+          "basis": "제2조 제9호"
+        }
+      ],
+      "2027-09-15": [
+        {
+          "name": "추석",
+          "nameEn": "Chuseok (Korean Thanksgiving)",
+          "kind": "chuseok",
+          "basis": "제2조 제9호"
+        }
+      ],
+      "2027-09-16": [
+        {
+          "name": "추석 다음 날",
+          "nameEn": "Chuseok holiday (day after)",
+          "kind": "chuseok",
+          "basis": "제2조 제9호"
+        }
+      ],
+      "2027-10-03": [
+        {
+          "name": "개천절",
+          "nameEn": "National Foundation Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2027-10-04": [
+        {
+          "name": "대체공휴일(개천절)",
+          "nameEn": "Substitute holiday for National Foundation Day",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제1호",
+          "for": "2027-10-03"
+        }
+      ],
+      "2027-10-09": [
+        {
+          "name": "한글날",
+          "nameEn": "Hangeul Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2027-10-11": [
+        {
+          "name": "대체공휴일(한글날)",
+          "nameEn": "Substitute holiday for Hangeul Day",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제1호",
+          "for": "2027-10-09"
+        }
+      ],
+      "2027-12-25": [
+        {
+          "name": "기독탄신일",
+          "nameEn": "Christmas Day",
+          "kind": "christmas",
+          "basis": "제2조 제10호"
+        }
+      ],
+      "2027-12-27": [
+        {
+          "name": "대체공휴일(기독탄신일)",
+          "nameEn": "Substitute holiday for Christmas Day",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제1호",
+          "for": "2027-12-25"
+        }
+      ]
+    },
+    "2028": {
+      "2028-01-01": [
+        {
+          "name": "1월 1일",
+          "nameEn": "New Year's Day",
+          "kind": "newyear",
+          "basis": "제2조 제3호"
+        }
+      ],
+      "2028-01-26": [
+        {
+          "name": "설날 전날",
+          "nameEn": "Seollal holiday (day before)",
+          "kind": "seol",
+          "basis": "제2조 제4호"
+        }
+      ],
+      "2028-01-27": [
+        {
+          "name": "설날",
+          "nameEn": "Seollal (Lunar New Year)",
+          "kind": "seol",
+          "basis": "제2조 제4호"
+        }
+      ],
+      "2028-01-28": [
+        {
+          "name": "설날 다음 날",
+          "nameEn": "Seollal holiday (day after)",
+          "kind": "seol",
+          "basis": "제2조 제4호"
+        }
+      ],
+      "2028-03-01": [
+        {
+          "name": "3ㆍ1절",
+          "nameEn": "Independence Movement Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2028-04-12": [
+        {
+          "name": "제23대 국회의원 선거일",
+          "nameEn": "National Assembly election day",
+          "kind": "election",
+          "basis": "제2조 제10의2호",
+          "source": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2028"
+        }
+      ],
+      "2028-05-01": [
+        {
+          "name": "노동절",
+          "nameEn": "Labor Day",
+          "kind": "labor",
+          "basis": "제2조 제6호"
+        }
+      ],
+      "2028-05-02": [
+        {
+          "name": "부처님 오신 날",
+          "nameEn": "Buddha's Birthday",
+          "kind": "buddha",
+          "basis": "제2조 제5호"
+        }
+      ],
+      "2028-05-05": [
+        {
+          "name": "어린이날",
+          "nameEn": "Children's Day",
+          "kind": "children",
+          "basis": "제2조 제7호"
+        }
+      ],
+      "2028-06-06": [
+        {
+          "name": "현충일",
+          "nameEn": "Memorial Day",
+          "kind": "memorial",
+          "basis": "제2조 제8호"
+        }
+      ],
+      "2028-07-17": [
+        {
+          "name": "제헌절",
+          "nameEn": "Constitution Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2028-08-15": [
+        {
+          "name": "광복절",
+          "nameEn": "Liberation Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2028-10-02": [
+        {
+          "name": "추석 전날",
+          "nameEn": "Chuseok holiday (day before)",
+          "kind": "chuseok",
+          "basis": "제2조 제9호"
+        }
+      ],
+      "2028-10-03": [
+        {
+          "name": "추석",
+          "nameEn": "Chuseok (Korean Thanksgiving)",
+          "kind": "chuseok",
+          "basis": "제2조 제9호"
+        },
+        {
+          "name": "개천절",
+          "nameEn": "National Foundation Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2028-10-04": [
+        {
+          "name": "추석 다음 날",
+          "nameEn": "Chuseok holiday (day after)",
+          "kind": "chuseok",
+          "basis": "제2조 제9호"
+        }
+      ],
+      "2028-10-05": [
+        {
+          "name": "대체공휴일(개천절, 추석)",
+          "nameEn": "Substitute holiday for National Foundation Day and Chuseok (Korean Thanksgiving)",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제3호",
+          "for": "2028-10-03"
+        }
+      ],
+      "2028-10-09": [
+        {
+          "name": "한글날",
+          "nameEn": "Hangeul Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2028-12-25": [
+        {
+          "name": "기독탄신일",
+          "nameEn": "Christmas Day",
+          "kind": "christmas",
+          "basis": "제2조 제10호"
+        }
+      ]
+    },
+    "2029": {
+      "2029-01-01": [
+        {
+          "name": "1월 1일",
+          "nameEn": "New Year's Day",
+          "kind": "newyear",
+          "basis": "제2조 제3호"
+        }
+      ],
+      "2029-02-12": [
+        {
+          "name": "설날 전날",
+          "nameEn": "Seollal holiday (day before)",
+          "kind": "seol",
+          "basis": "제2조 제4호"
+        }
+      ],
+      "2029-02-13": [
+        {
+          "name": "설날",
+          "nameEn": "Seollal (Lunar New Year)",
+          "kind": "seol",
+          "basis": "제2조 제4호"
+        }
+      ],
+      "2029-02-14": [
+        {
+          "name": "설날 다음 날",
+          "nameEn": "Seollal holiday (day after)",
+          "kind": "seol",
+          "basis": "제2조 제4호"
+        }
+      ],
+      "2029-03-01": [
+        {
+          "name": "3ㆍ1절",
+          "nameEn": "Independence Movement Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2029-05-01": [
+        {
+          "name": "노동절",
+          "nameEn": "Labor Day",
+          "kind": "labor",
+          "basis": "제2조 제6호"
+        }
+      ],
+      "2029-05-05": [
+        {
+          "name": "어린이날",
+          "nameEn": "Children's Day",
+          "kind": "children",
+          "basis": "제2조 제7호"
+        }
+      ],
+      "2029-05-07": [
+        {
+          "name": "대체공휴일(어린이날)",
+          "nameEn": "Substitute holiday for Children's Day",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제1호",
+          "for": "2029-05-05"
+        }
+      ],
+      "2029-05-20": [
+        {
+          "name": "부처님 오신 날",
+          "nameEn": "Buddha's Birthday",
+          "kind": "buddha",
+          "basis": "제2조 제5호"
+        }
+      ],
+      "2029-05-21": [
+        {
+          "name": "대체공휴일(부처님 오신 날)",
+          "nameEn": "Substitute holiday for Buddha's Birthday",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제1호",
+          "for": "2029-05-20"
+        }
+      ],
+      "2029-06-06": [
+        {
+          "name": "현충일",
+          "nameEn": "Memorial Day",
+          "kind": "memorial",
+          "basis": "제2조 제8호"
+        }
+      ],
+      "2029-07-17": [
+        {
+          "name": "제헌절",
+          "nameEn": "Constitution Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2029-08-15": [
+        {
+          "name": "광복절",
+          "nameEn": "Liberation Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2029-09-21": [
+        {
+          "name": "추석 전날",
+          "nameEn": "Chuseok holiday (day before)",
+          "kind": "chuseok",
+          "basis": "제2조 제9호"
+        }
+      ],
+      "2029-09-22": [
+        {
+          "name": "추석",
+          "nameEn": "Chuseok (Korean Thanksgiving)",
+          "kind": "chuseok",
+          "basis": "제2조 제9호"
+        }
+      ],
+      "2029-09-23": [
+        {
+          "name": "추석 다음 날",
+          "nameEn": "Chuseok holiday (day after)",
+          "kind": "chuseok",
+          "basis": "제2조 제9호"
+        }
+      ],
+      "2029-09-24": [
+        {
+          "name": "대체공휴일(추석 다음 날)",
+          "nameEn": "Substitute holiday for Chuseok holiday (day after)",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제2호",
+          "for": "2029-09-23"
+        }
+      ],
+      "2029-10-03": [
+        {
+          "name": "개천절",
+          "nameEn": "National Foundation Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2029-10-09": [
+        {
+          "name": "한글날",
+          "nameEn": "Hangeul Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2029-12-25": [
+        {
+          "name": "기독탄신일",
+          "nameEn": "Christmas Day",
+          "kind": "christmas",
+          "basis": "제2조 제10호"
+        }
+      ]
+    },
+    "2030": {
+      "2030-01-01": [
+        {
+          "name": "1월 1일",
+          "nameEn": "New Year's Day",
+          "kind": "newyear",
+          "basis": "제2조 제3호"
+        }
+      ],
+      "2030-02-02": [
+        {
+          "name": "설날 전날",
+          "nameEn": "Seollal holiday (day before)",
+          "kind": "seol",
+          "basis": "제2조 제4호"
+        }
+      ],
+      "2030-02-03": [
+        {
+          "name": "설날",
+          "nameEn": "Seollal (Lunar New Year)",
+          "kind": "seol",
+          "basis": "제2조 제4호"
+        }
+      ],
+      "2030-02-04": [
+        {
+          "name": "설날 다음 날",
+          "nameEn": "Seollal holiday (day after)",
+          "kind": "seol",
+          "basis": "제2조 제4호"
+        }
+      ],
+      "2030-02-05": [
+        {
+          "name": "대체공휴일(설날)",
+          "nameEn": "Substitute holiday for Seollal (Lunar New Year)",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제2호",
+          "for": "2030-02-03"
+        }
+      ],
+      "2030-03-01": [
+        {
+          "name": "3ㆍ1절",
+          "nameEn": "Independence Movement Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2030-05-01": [
+        {
+          "name": "노동절",
+          "nameEn": "Labor Day",
+          "kind": "labor",
+          "basis": "제2조 제6호"
+        }
+      ],
+      "2030-05-05": [
+        {
+          "name": "어린이날",
+          "nameEn": "Children's Day",
+          "kind": "children",
+          "basis": "제2조 제7호"
+        }
+      ],
+      "2030-05-06": [
+        {
+          "name": "대체공휴일(어린이날)",
+          "nameEn": "Substitute holiday for Children's Day",
+          "kind": "substitute",
+          "basis": "제3조 제1항 제1호",
+          "for": "2030-05-05"
+        }
+      ],
+      "2030-05-09": [
+        {
+          "name": "부처님 오신 날",
+          "nameEn": "Buddha's Birthday",
+          "kind": "buddha",
+          "basis": "제2조 제5호"
+        }
+      ],
+      "2030-06-06": [
+        {
+          "name": "현충일",
+          "nameEn": "Memorial Day",
+          "kind": "memorial",
+          "basis": "제2조 제8호"
+        }
+      ],
+      "2030-07-17": [
+        {
+          "name": "제헌절",
+          "nameEn": "Constitution Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2030-08-15": [
+        {
+          "name": "광복절",
+          "nameEn": "Liberation Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2030-09-11": [
+        {
+          "name": "추석 전날",
+          "nameEn": "Chuseok holiday (day before)",
+          "kind": "chuseok",
+          "basis": "제2조 제9호"
+        }
+      ],
+      "2030-09-12": [
+        {
+          "name": "추석",
+          "nameEn": "Chuseok (Korean Thanksgiving)",
+          "kind": "chuseok",
+          "basis": "제2조 제9호"
+        }
+      ],
+      "2030-09-13": [
+        {
+          "name": "추석 다음 날",
+          "nameEn": "Chuseok holiday (day after)",
+          "kind": "chuseok",
+          "basis": "제2조 제9호"
+        }
+      ],
+      "2030-10-03": [
+        {
+          "name": "개천절",
+          "nameEn": "National Foundation Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2030-10-09": [
+        {
+          "name": "한글날",
+          "nameEn": "Hangeul Day",
+          "kind": "national",
+          "basis": "제2조 제2호"
+        }
+      ],
+      "2030-12-25": [
+        {
+          "name": "기독탄신일",
+          "nameEn": "Christmas Day",
+          "kind": "christmas",
+          "basis": "제2조 제10호"
+        }
+      ]
+    }
+  }
+}

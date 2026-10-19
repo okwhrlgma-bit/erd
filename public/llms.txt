@@ -1,0 +1,60 @@
+# ERD 그리기 (ERD Maker, free ER diagram editor in your browser)
+
+가입 없이 브라우저에서 테이블과 관계를 그려 ERD 를 만드는 무료 편집기입니다. 그린 ERD 는 서버로 가지 않고 이 기기의 브라우저에만 저장합니다.
+
+## 무엇을 하나
+
+- 편집기는 오픈소스 drawdb(drawdb-io/drawdb, AGPL-3.0)를 기기 안 저장만 남기고 한국어 기본으로 고친 비공식 빌드입니다. 공식 빌드가 아닙니다.
+- 고친 소스 전체는 https://github.com/okwhrlgma-bit/erd 에 있고, 고친 내용은 그 저장소의 CHANGES.md 에 날짜별로 있습니다.
+- 편집기를 열면 데이터베이스를 고르는 창이 먼저 나옵니다. MySQL, PostgreSQL, SQLite, MariaDB, MSSQL, Oracle SQL, 일반 중에서 고릅니다.
+- 화면 언어는 브라우저 언어를 따릅니다. 한국어 번역이 빈 항목은 영어로 남습니다.
+- 첫 화면의 광고 한 자리를 빼면 광고가 없고, 가입과 횟수 제한이 없습니다.
+
+## 쓰는 법
+
+- 첫 화면에서 ERD 그리기 시작을 누르면 편집기가 열립니다.
+- 테이블 추가를 누르면 id 열이 있는 테이블이 생깁니다. id 는 기본키입니다.
+- 열 오른쪽의 점을 끌어 다른 테이블의 점에 놓으면 관계가 이어지고 외래키 표시가 붙습니다.
+- 그린 ERD 는 브라우저에 자동 저장됩니다. 파일 메뉴의 내보내기에서 PNG, JPEG, SVG, JSON, DBML, PDF, Mermaid, Markdown 파일을 받습니다.
+
+## 알려진 한계
+
+- 교재 표기(IE, Barker, Chen)로 바꾸는 기능은 없습니다.
+- 서버 공유와 가져오기 링크는 없습니다. 다른 곳에서 쓰려면 파일로 내보냅니다.
+- 브라우저 저장소를 지우면 그린 ERD 도 사라집니다.
+- 비공식 빌드이므로 이 사이트의 문제를 상류 프로젝트에 신고하지 않습니다.
+
+## 개인정보
+
+- 그린 ERD 는 서버로 가지 않습니다.
+- 서버가 받는 것은 단계 이름(방문, 시작 누름, 편집기 준비됨, 첫 입력, 내보내기, 재방문, 공유), 화면 언어, 유입 라벨, 방문 날짜뿐입니다. IP 주소와 기기 정보와 쿠키는 읽지 않습니다.
+- 기기에는 마지막으로 연 날짜 하나와 편집기의 저장 데이터만 둡니다.
+
+## 출처
+
+- 상류: https://github.com/drawdb-io/drawdb, GNU AGPL-3.0, 보증 없음. 라이선스 원문은 /LICENSE.txt 입니다.
+- 함께 들어 있는 오픈소스: Monaco Editor(MIT), Font Awesome Free, Bootstrap Icons(MIT).
+
+## 주소
+
+첫 화면: https://erd.gwirae.com/
+ERD 편집기: https://erd.gwirae.com/open/#/editor
+쓰는 법: https://erd.gwirae.com/guide
+출처와 라이선스: https://erd.gwirae.com/credits
+개인정보 처리방침: https://erd.gwirae.com/privacy
+
+## English
+
+ERD Maker is a free ER diagram editor that runs in your browser with no sign-up and nothing to install. It is an unofficial modified build of the open source drawdb editor (drawdb-io/drawdb, AGPL-3.0) that keeps storage on your device and defaults to Korean. Your diagram stays in this browser and is never sent to a server.
+
+- The full modified source is at https://github.com/okwhrlgma-bit/erd, with dated changes in CHANGES.md.
+- Hit Add table, then drag a column dot onto another table to make a relation.
+- File, then Export, offers PNG, JPEG, SVG, JSON, DBML, PDF, Mermaid and Markdown.
+- The screen language follows your browser. Items the upstream Korean translation left empty show in English.
+- Limits: no switch for textbook notations (IE, Barker, Chen), no server sharing.
+- The server receives only a step name, the screen language, a source label and the visit date. No IP address, device info or cookies are read.
+
+English home: https://erd.gwirae.com/en
+English guide: https://erd.gwirae.com/en/guide
+English credits: https://erd.gwirae.com/en/credits
+English privacy: https://erd.gwirae.com/en/privacy
